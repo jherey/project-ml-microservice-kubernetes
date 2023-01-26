@@ -6,10 +6,14 @@
 # Step 1:
 # Create dockerpath
 # dockerpath=<your docker ID/path>
+dockerpath=jherey/ml-microservice-k8
 
-# Step 2:  
+# Step 2:
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
+docker login
+docker tag udacity-ml-microservice-k8 $dockerpath:latest
 
 # Step 3:
 # Push image to a docker repository
+docker push $dockerpath:latest

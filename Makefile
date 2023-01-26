@@ -7,13 +7,17 @@
 
 setup:
 	# Create python virtualenv & source it
-	# source ~/.devops/bin/activate
 	python3 -m venv ~/.devops
+	. ~/.devops/bin/activate
 
 install:
 	# This should be run from inside a virtualenv
-	pip install --upgrade pip &&\
-		pip install -r requirements.txt
+	pip install --no-cache-dir --upgrade pip && \
+		pip install --no-cache-dir --upgrade setuptools && \
+		pip install --no-cache-dir --upgrade wheel && \
+		pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
+	# pip install --upgrade pip &&\
+	# 	pip install -r requirements.txt
 
 test:
 	# Additional, optional, tests could go here
