@@ -15,7 +15,9 @@ install:
 	pip install --no-cache-dir --upgrade pip && \
 		pip install --no-cache-dir --upgrade setuptools && \
 		pip install --no-cache-dir --upgrade wheel && \
-		pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
+		pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt && \
+		wget -O ./hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&\
+		chmod +x ./hadolint
 
 test:
 	# Additional, optional, tests could go here
