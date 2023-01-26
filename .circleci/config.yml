@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # Use the same Docker base as the project
-      - image: circleci/python:3.7.3-stretch
+      - image: python:3.7.3-stretch
 
     working_directory: ~/repo
 
@@ -30,6 +30,7 @@ jobs:
             # Install hadolint
             wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&\
             chmod +x /bin/hadolint
+            
       - save_cache:
           paths:
             - ./venv
