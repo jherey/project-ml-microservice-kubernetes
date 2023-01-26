@@ -16,8 +16,6 @@ install:
 		pip install --no-cache-dir --upgrade setuptools && \
 		pip install --no-cache-dir --upgrade wheel && \
 		pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
-	# pip install --upgrade pip &&\
-	# 	pip install -r requirements.txt
 
 test:
 	# Additional, optional, tests could go here
