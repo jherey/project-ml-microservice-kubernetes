@@ -24,7 +24,10 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 ---
 
 ## Setup the Environment
-
+* Clone the repository
+```bash
+git clone git@github.com:jherey/project-ml-microservice-kubernetes.git
+```
 * Create a virtualenv with Python 3.7 and activate it. Refer to this link for help on specifying the Python version in the virtualenv.
 ```bash
 python3 -m pip install --user virtualenv
@@ -35,6 +38,33 @@ python3 -m virtualenv --python=<path-to-Python3.7> .devops
 source .devops/bin/activate
 ```
 * Run `make install` to install the necessary dependencies
+* Install Docker if you don't already have it
+```bash
+brew install docker
+```
+* Install hadolint for linting Docker files
+```bash
+brew install hadolint
+```
+* Install minikube to run the Kubernetes cluster
+```bash
+brew install virtualbox
+brew install minikube
+```
+
+## Scripts
+Ensure you're in the root directory of the project
+* Run lint checks
+```bash
+make lint
+```
+* Run `./run_docker.sh` to create the docker container.
+* While the app's container is running in a different tab, you can make predictions by running `./make_prediction.sh`.
+* You can upload the created container to any container registry of your choice, I used [docker hub](https://hub.docker.com/repository/docker/jherey/ml-microservice-k8/general).
+```bash
+./upload_docker.sh
+```
+* Run `./run_kubernetes.sh` to deploy with Kubernetes locally using minikube
 
 ### Running `app.py`
 
@@ -47,4 +77,6 @@ source .devops/bin/activate
 * Setup and Configure Docker locally
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
+- `./run_docker.sh` creates the docker image and container.
+- `./upload_docker.sh` uploads the image.
 * Run via kubectl
